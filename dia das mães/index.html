@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Dia das Mães</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#ff758c,#ff7eb3);
+      font-family:Arial, sans-serif;
+      overflow:hidden;
+    }
+
+    .container{
+      background:white;
+      width:90%;
+      max-width:700px;
+      padding:40px;
+      border-radius:25px;
+      text-align:center;
+      box-shadow:0 10px 30px rgba(0,0,0,0.2);
+      animation:fade 2s ease;
+      position:relative;
+      z-index:2;
+    }
+
+    h1{
+      color:#e91e63;
+      margin-bottom:20px;
+      font-size:45px;
+    }
+
+    p{
+      font-size:20px;
+      color:#444;
+      line-height:1.8;
+    }
+
+    .heart{
+      font-size:60px;
+      animation:pulse 1s infinite;
+      margin-bottom:20px;
+    }
+
+    @keyframes pulse{
+      0%{transform:scale(1);}
+      50%{transform:scale(1.2);}
+      100%{transform:scale(1);}
+    }
+
+    @keyframes fade{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .flowers{
+      position:absolute;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      overflow:hidden;
+      z-index:1;
+    }
+
+    .flower{
+      position:absolute;
+      font-size:30px;
+      animation:fall linear infinite;
+    }
+
+    @keyframes fall{
+      from{
+        transform:translateY(-100px) rotate(0deg);
+      }
+      to{
+        transform:translateY(110vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="flowers"></div>
+
+  <div class="container">
+    <div class="heart">💖</div>
+
+    <h1>Feliz Dia das Mães</h1>
+
+    <p>
+      Janaina Ferreira do Nascimento,<br><br>
+
+      Hoje quero te agradecer por todo amor, carinho e dedicação.
+      Você é uma mulher incrível, forte e cheia de luz.<br><br>
+
+      Obrigado por sempre estar ao meu lado,
+      me apoiar e nunca desistir de mim.<br><br>
+
+      Que seu Dia das Mães seja lindo,
+      cheio de felicidade, amor e paz.<br><br>
+
+      <strong>Eu te amo muito ❤️</strong>
+    </p>
+  </div>
+
+  <!-- Música -->
+  <audio autoplay loop controls>
+    <source src="musica.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    const flowers = document.querySelector('.flowers');
+
+    for(let i = 0; i < 25; i++){
+      let flower = document.createElement('div');
+
+      flower.classList.add('flower');
+      flower.innerHTML = '🌸';
+
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      flower.style.fontSize = (Math.random() * 20 + 20) + 'px';
+
+      flowers.appendChild(flower);
+    }
+  </script>
+
+</body>
+</html>
